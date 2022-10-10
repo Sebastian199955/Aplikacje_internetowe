@@ -1,0 +1,5 @@
+Aktualny status prac nad projektem:
+10.10.2022
+- skonfigurowane srodowisko IntelliJ
+- połaczone srodowisko pod GitHub
+
