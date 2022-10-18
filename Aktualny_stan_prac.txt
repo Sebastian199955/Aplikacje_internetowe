@@ -3,6 +3,6 @@ Aktualny status prac nad projektem:
 - skonfigurowane srodowisko IntelliJ
 - połaczone srodowisko pod Git
 18.10.2022
-- na branch "zad_1" - zostało dodane zadanie z kalkulatorem
+- na branch "zad_1" - zostało dodane zadanie nr 1
 - na branch "zad_2" - zostało dodane zadanie nr 2
 
