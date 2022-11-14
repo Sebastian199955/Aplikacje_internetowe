@@ -5,4 +5,3 @@ Aktualny status prac nad projektem:
 18.10.2022
 - na branch "zad_1" - zostało dodane zadanie nr 1
 - na branch "zad_2" - zostało dodane zadanie nr 2
-

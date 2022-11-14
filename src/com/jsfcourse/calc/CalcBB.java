@@ -11,55 +11,43 @@ import javax.faces.context.FacesContext;
 @RequestScoped
 //@SessionScoped
 public class CalcBB {
-	private String kwota;
-	private String lata;
-	private String oprocentowanie;
-	private Double wynik;
-	private Double procenty;
+	private String x;
+	private String y;
+	private Double result;
 
 	@Inject
 	FacesContext ctx;
 
-	
-
-	public String getKwota() {
-		return kwota;
+	public String getX() {
+		return x;
 	}
 
-	public void setKwota(String kwota) {
-		this.kwota = kwota;
+	public void setX(String x) {
+		this.x = x;
 	}
 
-	public String getLata() {
-		return lata;
+	public String getY() {
+		return y;
 	}
 
-	public void setLata(String lata) {
-		this.lata = lata;
+	public void setY(String y) {
+		this.y = y;
 	}
 
-	public String getOprocentowanie() {
-		return oprocentowanie;
+	public Double getResult() {
+		return result;
 	}
 
-	public void setOprocentowanie(String oprocentowanie) {
-		this.oprocentowanie = oprocentowanie;
+	public void setResult(Double result) {
+		this.result = result;
 	}
-
-	public Double getWynik() {
-		return wynik;
-	}
-
 
 	public boolean doTheMath() {
 		try {
-			double kwota = Double.parseDouble(this.kwota);
-			double lata = Double.parseDouble(this.lata);
-			double oprocentowanie = Double.parseDouble(this.lata);
-			
-			procenty= kwota*(oprocentowanie/100);
+			double x = Double.parseDouble(this.x);
+			double y = Double.parseDouble(this.y);
 
-			wynik = (kwota/(lata*12))+procenty;
+			result = x + y;
 
 			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Operacja wykonana poprawnie", null));
 			return true;
@@ -78,13 +66,13 @@ public class CalcBB {
 		return null;
 	}
 
+	// Put result in messages on AJAX call
 	public String calc_AJAX() {
 		if (doTheMath()) {
-			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Wynik: " + wynik, null));
+			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Wynik: " + result, null));
 		}
 		return null;
 	}
-	
 
 	public String info() {
 		return "info";
