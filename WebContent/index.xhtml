@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	>
+<h:head>
+	<title>kalk</title>
+</h:head>
+<h:body>
+
+	<p:panel header="KALKULATOR" style="margin: 1em auto;">
+
+	<h:form>
+	 <h:panelGrid id="grid" columns="3" cellpadding="7">
+	 
+		 	<p:outputLabel for="kwota" value="KWOTA" />
+			<p:inputText value="#{calcBB.kwota}" required="true"
+				requiredMessage="Brak kwoty"
+				converterMessage="Kwota musi byc liczba"
+				validatorMessage="Minimalna kwota to 600 zl" id="kwota">
+				<f:validateDoubleRange minimum="600" />
+			</p:inputText>
+
+			<p:message for="kwota" />
+
+			<p:outputLabel for="czas" value="CZAS" />
+			<p:inputText value="#{calcBB.czas}" required="true"
+				requiredMessage="Brak czasu" 
+				converterMessage="czas musza byc liczba"
+				validatorMessage="czas musza byc w zakresie od 1 do 60" id="czas">
+				<f:validateDoubleRange minimum="1" maximum="60" />
+			</p:inputText>
+			
+			<p:message for="czas" />
+  		
+  		</h:panelGrid>
+		<p:messages id="msg" />
+		<p:commandButton value="Dodaj (AJAX)" action="#{calcBB.calc_AJAX()}" update="msg"/>
+		
+	</h:form>
+	</p:panel>
+</h:body>
+</html>
